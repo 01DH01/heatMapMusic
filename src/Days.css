@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
+    margin-bottom: 5px;
   }
   
   .day-box {
@@ -36,6 +37,14 @@
   .day-box:hover .day-info {    
     width: 100px;
     display: block;
+  }
+
+  @media (max-width: 768px)
+{
+      .days-container
+      {
+          padding: 10px ;
+      }
   }
 
  

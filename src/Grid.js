@@ -22,8 +22,8 @@ function Grid() {
     // Organize stats into a nested object by month and day
     const dayStats = stats.reduce((acc, curr) => {
         const date = new Date(curr.date);
-        const month = date.getMonth() +1; // Months are zero-based
-        const day = date.getDate();
+        const month = date.getUTCMonth() +1; // Months are zero-based
+        const day = date.getUTCDate();
 
         if (!acc[month]) {
             acc[month] = {};
