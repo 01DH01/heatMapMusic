@@ -1,33 +1,43 @@
 import React from 'react';
 import './Days.css';
 
-function Days({ daysInMonth, dayStats }) {
+function Days({ daysInMonth, dayStats, month }) {
     const renderDays = () => {
         const days = [];
         for (let i = 1; i <= daysInMonth; i++) {
-            // Get stats for the day, or use default stats if no data exists
-            const stats = dayStats[i] || { plays: 0, mostPlayedSong: "No data" };
-    
-            // Push day box with relevant stats into the array
+            // Retrieve stats for the current day
+            const stats = dayStats[month]?.[i] || { 
+                date: "No data", 
+                plays: 0, 
+                mostPlayedSong: "No data" 
+            };
+            const colorClass = getColor(stats.plays);
+
+            // Add day box with all the information
             days.push(
-                <div className="day-box" key={i}>
-                    {i}
+                <div className="day-box" key={i} style={getColor(stats.plays)}>
+                    <div className="day-number">{i}</div>
                     <div className="day-info">
-                        <span>Plays: {stats.plays}</span>
-                        <span>Most Played Song: {stats.mostPlayedSong}</span>
+                        <p>Date: {stats.date}</p>
+                        <p>Plays: {stats.plays}</p>
+                        <p>Most Played Song: {stats.mostPlayedSong}</p>
                     </div>
                 </div>
             );
         }
         return days;
     };
-
-    return (
-        <div className="days-container">
-            {renderDays()}
-        </div>
-    );
+    const getColor = (plays) => {
+        if (plays > 50) return { backgroundColor: "#004100" };  
+        if (plays >= 30 && plays <=49) return { backgroundColor: "#000000" }; 
+        if (plays >= 1 && plays <= 29) return { backgroundColor: "#b1feb1" };  
+        if (plays === 0) return { backgroundColor: "#808080" }; 
+        return { backgroundColor: "#013220" }; 
+    };
+    
+    return <div className="days-container">{renderDays()}</div>;
 }
+
 
 export default Days;
 
