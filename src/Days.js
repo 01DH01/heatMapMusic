@@ -28,9 +28,9 @@ function Days({ daysInMonth, dayStats, month }) {
         return days;
     };
     const getColor = (plays) => {
-        if (plays > 50) return { backgroundColor: "#004100" };  
-        if (plays >= 30 && plays <=49) return { backgroundColor: "#000000" }; 
-        if (plays >= 1 && plays <= 29) return { backgroundColor: "#b1feb1" };  
+        if (plays > 50) return { backgroundColor: "#001a00" };  
+        if (plays >= 30 && plays <=49) return { backgroundColor: "#004d00" }; 
+        if (plays >= 1 && plays <= 29) return { backgroundColor: "#80ff80" };  
         if (plays === 0) return { backgroundColor: "#808080" }; 
         return { backgroundColor: "#013220" }; 
     };

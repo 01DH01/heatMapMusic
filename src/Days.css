@@ -27,23 +27,36 @@
     z-index: 1;
     top: 30%; 
     left: 23%;
-    transform: translate(-150%, -50%);
+    height: auto;
+    transform: translate(-50%, -110%);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px;
     border-radius: 4px;
   }
-  
   .day-box:hover .day-info {    
     width: 100px;
     display: block;
+    position: absolute;
   }
 
   @media (max-width: 768px)
 {
       .days-container
       {
-          padding: 10px ;
+          padding: 10px;
+      }
+      .day-info
+      {
+        height: 150px;
+        transform: translate(-50%, -100%);
+      }
+      .day-info p {
+        margin-top: 15px;
+        line-height: 1; 
+    }
+      .day-box:hover .day-info { 
+        position: absolute;        
       }
   }
 
